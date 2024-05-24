@@ -47,7 +47,7 @@ echo -e "$red[A]dvanced$endcolor enumeration: Extracts users, groups, shares, pa
 echo -e "\n$yellow[3] EXPLOITATION:$endcolor\n"
 echo -e "$blue[B]asic$endcolor exploitation: Performs an nmap scan on the network, while running the vulnerability script in order to detect vulnerabilities for possible exploitation."
 echo -e "$green[I]ntermediate$endcolor exploitation: Executes a Password Spray attack on the Domain Controller. Either uses a user given password list, or rockyou.txt if a password list is not supplied $red(requires credentials)$endcolor."
-echo -e "$red[A]dvanced$endcolor exploitation: Attempts to extract and crack password hashes by using impacket's secretsdump.py to extract the ticket, and John the Ripper to crack it with the user-provided password list $red(requires credentials)$endcolor."
+echo -e "$red[A]dvanced$endcolor exploitation: Attempts to extract and crack password hashes by using impacket's secretsdump.py to extract the ticket, and John the Ripper to crack it with the user-provided password list $red(requires credentials)$endcolor.$red\nNote:$endcolor This exploitation method will delete your$red john.pot$endcolor file in order to show and document cracked hashes! Make sure to back it up before use."
 
 echo -e "\n\n$cyan[*]$endcolor$yellow Please press $green[Enter]$endcolor$yellow to return to the main menu...$endcolor\n"
 read n
