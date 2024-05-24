@@ -21,7 +21,7 @@ The script is divided into 3 sections (Scanning, Enumeration, Exploitation), tha
 3. Exploitation:
 - Basic - Nmap scans the network with its Vulnerability Scanning script.
 - Intermediate - Executes a Password Spray attack on the Domain Controller based on a user-given password list.
-- Advanced - Extracts and attempts to crack the Domain Controller's password hashes with a user-given password list.
+- Advanced - Extracts and attempts to crack the Domain Controller's password hashes with a user-given password list (keep in mind: this exploitation method will delete your john.pot file for password display and documnetation. Make sure you back it up before use in order to avoid losing previously cracked passwords).
 
 All of the generated output is converted into IP-marked PDF files for convenience.
 
