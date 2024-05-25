@@ -38,12 +38,12 @@ Notes: The PDF conversion process requires enscript to be installed. When the sc
 ![5](https://github.com/icon5730/AD_Enum/assets/166230648/524ac67e-ff48-4f07-9f6a-84f1960bb4bc)
 <b>Exploitation:</b>
 ![6](https://github.com/icon5730/AD_Enum/assets/166230648/cf830d67-1527-4b8b-adcd-cb44eef18a4b)
-![7](https://github.com/icon5730/AD_Enum/assets/166230648/f2bc1dc8-5f97-4fc6-b823-60fa434858c9)
+![7](https://github.com/icon5730/AD_Enum/assets/166230648/ceae2946-5070-4540-9ad2-169256035331)
 <b>Variable Input:</b>
 ![8](https://github.com/icon5730/AD_Enum/assets/166230648/b84f3974-e4c4-4047-a764-7d3baec774ac)
 <b>Output:</b>
 ![9](https://github.com/icon5730/AD_Enum/assets/166230648/19d8ea9b-f641-4125-aaad-d880793e17bd)
-![10](https://github.com/icon5730/AD_Enum/assets/166230648/60e18fc8-0f3b-4e1e-bca8-793e17944b50)
+![10](https://github.com/icon5730/AD_Enum/assets/166230648/9546e68e-d29e-4902-a14a-588b42476fae)
 ![11](https://github.com/icon5730/AD_Enum/assets/166230648/47097b9b-9879-4da8-a47d-d1ad96b5e7f1)
 ![12](https://github.com/icon5730/AD_Enum/assets/166230648/103915b0-123f-4310-b515-607eab96ae53)
 
