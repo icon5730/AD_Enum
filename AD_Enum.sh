@@ -761,12 +761,18 @@ if [ -z $adusr ];
                                 then
                                 rm /root/.john/john.pot 2>/dev/null
                                 john --format=NT --wordlist=$list hash > tkt 2>/dev/null
-                                echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
+                                echo -e "\n[*] Impacket Hash extraction results:\n" >> tkt
+                                cat hash >> tkt 2>/dev/null
+                                echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat -n /root/.john/john.pot)$endcolor"
                                 else
                                 cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
                                 rm /root/.john/john.pot 2>/dev/null
                                 john --format=NT --wordlist=rockyou.txt hash > tkt 2>/dev/null
-                                echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
+                                echo -e "\n[*] Impacket Hash extraction results:\n" >> tkt
+                                cat hash >> tkt 2>/dev/null
+                                echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat -n /root/.john/john.pot)$endcolor"
+                                rm ./rockyou.txt
+
                         fi
 
                         rm hash
@@ -795,14 +801,14 @@ if [ -z $adusr ];
 				john --format=NT --wordlist=$list hash > tkt 2>/dev/null
 				echo -e "\n[*] Impacket Hash extraction results:\n" >> tkt
 				cat hash >> tkt 2>/dev/null
-				echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
+				echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat -n /root/.john/john.pot)$endcolor"
 				else
 				cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
 				rm /root/.john/john.pot 2>/dev/null
 				john --format=NT --wordlist=rockyou.txt hash > tkt 2>/dev/null
 				echo -e "\n[*] Impacket Hash extraction results:\n" >> tkt
 				cat hash >> tkt 2>/dev/null
-				echo -e $blue[*] Recovered passwords: $green$(cat /root/.john/john.pot)$endcolor
+				echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat -n /root/.john/john.pot)$endcolor"
 				rm ./rockyou.txt
 			fi
 
