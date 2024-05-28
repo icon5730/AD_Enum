@@ -40,7 +40,7 @@ Notes: The PDF conversion process requires enscript to be installed. When the sc
 ![6](https://github.com/icon5730/AD_Enum/assets/166230648/cf830d67-1527-4b8b-adcd-cb44eef18a4b)
 ![7](https://github.com/icon5730/AD_Enum/assets/166230648/ceae2946-5070-4540-9ad2-169256035331)
 <b>Variable Input:</b>
-![8](https://github.com/icon5730/AD_Enum/assets/166230648/b84f3974-e4c4-4047-a764-7d3baec774ac)
+![8](https://github.com/icon5730/AD_Enum/assets/166230648/2c7b6de3-0059-4665-878a-401814265fd2)
 <b>Output:</b>
 ![9](https://github.com/icon5730/AD_Enum/assets/166230648/19d8ea9b-f641-4125-aaad-d880793e17bd)
 ![10](https://github.com/icon5730/AD_Enum/assets/166230648/9546e68e-d29e-4902-a14a-588b42476fae)
