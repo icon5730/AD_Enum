@@ -30,7 +30,7 @@ Notes: The PDF conversion process requires enscript to be installed. When the sc
 <b>Main Menu:</b>
 ![1](https://github.com/icon5730/AD_Enum/assets/166230648/6817bdf6-f365-46fc-b5c0-254fe134733c)
 <b>Help Manual:</b>
-![2](https://github.com/icon5730/AD_Enum/assets/166230648/88c6f732-93b9-417c-9c67-de4472f53a04)
+![2](https://github.com/icon5730/AD_Enum/assets/166230648/d94acd2c-e3d7-450d-b81d-491bcf37c1ae)
 <b>Scanning:</b>
 ![3](https://github.com/icon5730/AD_Enum/assets/166230648/cf6c6d66-6f2c-433c-a453-dd2b3c362bcc)
 <b>Enumeration:</b>
