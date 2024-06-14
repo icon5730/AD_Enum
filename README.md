@@ -1,4 +1,4 @@
-A Kali Linux based Bash script designed for automating the process of scanning, enumerating and exploiting networks that are managed by an Active Directory.
+A Kali Linux based Bash script designed for automating the process of scanning, enumerating and exploiting Active Directory networks.
 
 Key features of this script:
 - Timestamped output folder
