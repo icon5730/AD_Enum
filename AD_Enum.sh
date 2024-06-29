@@ -32,15 +32,15 @@ printf $magenta
 figlet -f digital Help Manual
 printf $endcolor
 
-echo -e "\nThis tool was designed with the aim of scanning networks for endpoints, with emphasis on locating the Active Directory Domain Controller.\n"
-echo -e "Once in the main menu, you are given a choice between $lcyan[1]$endcolor (scanning), $lgreen[2]$endcolor (enumeration) and $lblue[3]$endcolor (exploitation).\nThere is also a key feature - $cyan[V]$endcolor (variables). Some of the enumeration and exploitation options require pre-supplied variables in order to work, so make sure to fully utilize it if you can."
-echo -e "Inside $cyan[V]ariables$endcolor, you are able to supply the Active Directory domain name, credentials (username, password), a password list and the Domain Controller IP address for certain exploitation features.\nThe main menu will display the user inputs for convenience.\nSetting up an output folder when starting the script is$red mandatory$endcolor before using any of the features."
+echo -e "\nThis tool was designed with the aim of scanning networks for endpoints, with emphasis on locating, enumerating and exploiting the Active Directory Domain Controller.\n"
+echo -e "Once in the main menu, you are given a choice between $lcyan[1]$endcolor (scanning), $lgreen[2]$endcolor (enumeration) and $lblue[3]$endcolor (exploitation).\nThere is also a key feature - $cyan[V]$endcolor (variables). Some of the enumeration and exploitation options require pre-supplied variables in order to work, so make sure to fully utilize and input said variables if you can."
+echo -e "Inside $cyan[V]ariables$endcolor, you are able to supply the Active Directory domain name, credentials (username, password), a password list and the Domain Controller IP address for certain exploitation features.\nThe main menu will display the user inputs for convenience.\nSetting up an output folder when starting the script is$red mandatory$endcolor before using any of its features."
 echo -e "\n$yellow[1] SCANNING:$endcolor\n"
 echo -e "$blue[B]asic$endcolor scanning: Nmap scans the network with -Pn flag to bypass the discovery phase."
-echo -e "$green[I]ntermediate$endcolor scanning: Performs a full TCP port range nmap scan the network with -Pn flag."    
-echo -e "$red[A]dvanced$endcolor scanning: Performs a full TCP port range nmap scan the network with -Pn flag, and adds a full range UDP port masscan for a complete port scan."
+echo -e "$green[I]ntermediate$endcolor scanning: Performs a full TCP port range Nmap scan the network with -Pn flag."    
+echo -e "$red[A]dvanced$endcolor scanning: Performs a full TCP port range Nmap scan of the network with -Pn flag, and adds a full range UDP port masscan for a complete port scan."
 echo -e "\n$yellow[2] ENUMERATION:$endcolor\n"
-echo -e "$blue[B]asic$endcolor enumeration: Does a service nmap scan (-sV) on the network in order to locate key ports and services and find the Domain Controller and DHCP server. If a Domain Controller is found - it will be registered as a variable (if you find more than one Domain Controller in your network and wish to use a different Domain Controller IP, please change in manually inside $cyan[V]ariables$endcolor)."
+echo -e "$blue[B]asic$endcolor enumeration: Does a service Nmap scan (-sV) on the network in order to locate key ports and services, and in order to find the Domain Controller and DHCP server. If a Domain Controller is found - it will be registered as a variable (if you find more than one Domain Controller in your network and wish to use a different Domain Controller IP, please change in manually inside $cyan[V]ariables$endcolor)."
 echo -e "$green[I]ntermediate$endcolor enumeration: Nmap scans the Domain Controller with 3 scripts (smb-enum-domains.nse,smb-enum-groups.nse,smb-enum-users.nse), and performs a shared folder enumeration on the Domain Controller $red(requires credentials)$endcolor."
 echo -e "If the Domain Controller was located in a $blue[B]asic$endcolor enumeration, its IP address will be used as the target. If a $blue[B]asic$endcolor enumeration hasn't been used - the user must type in a target IP."
 echo -e "$red[A]dvanced$endcolor enumeration: Extracts users, groups, shares, password policy, finds disabled accounts, never-expired accounts and members of the Domain Admin group $red(requires credentials)$endcolor."
@@ -48,6 +48,7 @@ echo -e "\n$yellow[3] EXPLOITATION:$endcolor\n"
 echo -e "$blue[B]asic$endcolor exploitation: Performs an nmap scan on the network, while running the vulnerability script in order to detect vulnerabilities for possible exploitation."
 echo -e "$green[I]ntermediate$endcolor exploitation: Executes a Password Spray attack on the Domain Controller. Either uses a user given password list, or rockyou.txt if a password list is not supplied $red(requires credentials)$endcolor."
 echo -e "$red[A]dvanced$endcolor exploitation: Attempts to extract and crack password hashes by using impacket's secretsdump.py to extract the ticket, and John the Ripper to crack it with the user-provided password list $red(requires credentials)$endcolor.$red\nNote:$endcolor This exploitation method will delete your$red john.pot$endcolor file in order to show and document cracked hashes! Make sure to back it up before use."
+echo -e "\nAll data collected is saved as PDF files in the output folder for later use."
 
 echo -e "\n\n$cyan[*]$endcolor$yellow Please press $green[Enter]$endcolor$yellow to return to the main menu...$endcolor\n"
 read n
@@ -108,7 +109,7 @@ read -p "$(echo -e "$cyan[?]$endcolor$yellow Please enter an Active Directory pa
 read -p "$(echo -e "$cyan[?]$endcolor$yellow Please enter a password list path: $endcolor")" list
 	if [ -f $list ] && [ ! -z $list ] 
 		then echo -e "$green[!] A password list has been submitted ($blue$list$endcolor$green) $endcolor" ; sleep 0.3
-		else echo -e "$red[!] The path does not contain a file. $endcolor\n$blue[+] Resorting to rockyou.txt $endcolor" ; sleep 0.3
+		else echo -e "$red[!] The path does not contain a file $endcolor\n$blue[+] Resorting to rockyou.txt $endcolor" ; sleep 0.3
 	fi
 read -p "$(echo -e "$cyan[?]$endcolor$yellow Please enter a Domain Controller IP address: $endcolor")" dcip
         if [ ! -z $dcip ] 
